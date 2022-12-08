@@ -14,8 +14,7 @@ function template(code, options = {}) {
         .replace( /([^\\])`/g, '$1\\`' );
 
     return `export default ({ css }) => {
-        const extractorBody = \`return css\\\`${formatted}\\\`;\`;
-        return (new Function("css", extractorBody))(css);
+        return css\`${formatted}\`;
     };`;
 }
 
